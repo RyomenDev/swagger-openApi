@@ -30,7 +30,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *   post:
  *     summary: User login
  *     description: Authenticate user with email and password
- *     requestBody:   # ✅ Correct way to define request body
+ *     requestBody:
  *       required: true
  *       content:
  *         application/json:
@@ -80,6 +80,65 @@ app.post("/login", (req, res) => {
   } else {
     res.status(401).json({ message: "Invalid credentials" });
   }
+});
+
+const users = []; // Temporary storage for registered users
+
+/**
+ * @swagger
+ * /register:
+ *   post:
+ *     summary: User registration
+ *     description: Register a new user
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: "Akash Mishra"
+ *               email:
+ *                 type: string
+ *                 example: "user@example.com"
+ *               password:
+ *                 type: string
+ *                 example: "password"
+ *     responses:
+ *       200:
+ *         description: Registration successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Registration successful"
+ *       401:
+ *         description: Unauthorized
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Invalid credentials"
+ */
+
+app.post("/register", (req, res) => {
+  const { name, email, password } = req.body;
+  //   console.log({ name, email, password });
+
+  if (users.find((u) => u.email === email)) {
+    return res.status(400).json({ message: "User already exists" });
+  }
+
+  users.push({ name, email, password });
+  res.status(201).json({ message: "Registration successful" });
 });
 
 app.listen(5000, () => console.log("✅ Server running on port 5000"));
