@@ -1,5 +1,7 @@
 ## Implementation of Swagger (OpenAPI) with Node.js and Express, along with a React JSX client to interact with the API.
 
+![Image](https://github.com/user-attachments/assets/ee8ec7c7-a093-4170-847a-2d445ea47e0c)
+
 ## 🎯 How to Run
 
 #### 1. Start the Express server:
