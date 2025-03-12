@@ -1,4 +1,3 @@
-
 ![Image](https://github.com/user-attachments/assets/b4945d89-4232-42cd-9972-56eff922eb29)
 
 ## Features Covered
@@ -27,3 +26,24 @@ After running the server, visit:
 │── index.js              # Main server file
 │── package.json
 ```
+
+## 🔥 New Features Added
+
+✅ **Profile Management**
+
+- `GET /profile/get` → Fetch user profile
+- `PUT /profile/update` → Update user profile
+
+✅ **Real-time Chat**
+
+- `POST /chat/send` → Send a message
+- `GET /chat/messages` → Retrieve chat history
+
+✅ **Order Management**
+
+- `POST /order/place` → Place an order
+- `GET /order/status` → Get order status
+
+✅ **Extended File Operations**
+
+- `DELETE /file/delete` → Delete a file
