@@ -2,11 +2,11 @@
 
 ## Features Covered
 
-✅ **Login API –** Authenticate users using email & password.
-✅ **Register API –** Register users with email & password.
-✅ **Image Upload API –** Upload image files using `multipart/form-data`.
-✅ **Video Upload API –** Upload video files using `multipart/form-data`.
-✅ **Form Submission API –** Send structured JSON data via form submission.
+✅ **Login API :** `(POST /auth/login)` - Authenticate users using email & password.
+✅ **Register API :** `(POST /auth/register)` -  Register users with email & password.
+✅ **Image Upload API :** `(POST /file/upload-image)` - Upload image files using `multipart/form-data`.
+✅ **Video Upload API :** `(POST /file/upload-video)` - Upload video files using `multipart/form-data`.
+✅ **Form Submission API :** `(POST /form/submit)` - Send structured JSON data via form submission.
 
 ## Swagger API Documentation
 
