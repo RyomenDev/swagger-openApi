@@ -30,27 +30,51 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *   post:
  *     summary: User login
  *     description: Authenticate user with email and password
- *     parameters:
- *       - in: body
- *         name: user
- *         required: true
- *         description: User credentials
- *         schema:
- *           type: object
- *           required: [email, password]
- *           properties:
- *             email:
- *               type: string
- *             password:
- *               type: string
+ *     requestBody:   # ✅ Correct way to define request body
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: "user@example.com"
+ *               password:
+ *                 type: string
+ *                 example: "password"
  *     responses:
  *       200:
  *         description: Login successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Login successful"
+ *                 token:
+ *                   type: string
+ *                   example: "12345"
  *       401:
  *         description: Unauthorized
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Invalid credentials"
  */
+
 app.post("/login", (req, res) => {
+  //   console.log(req.body, req.params);
+
   const { email, password } = req.body;
+  //   console.log({ email, password });
+
   if (email === "user@example.com" && password === "password") {
     res.json({ message: "Login successful", token: "12345" });
   } else {
