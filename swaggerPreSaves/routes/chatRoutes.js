@@ -28,6 +28,7 @@ const router = express.Router();
  *         description: Message sent successfully
  */
 router.post("/send", (req, res) => {
+  console.log(req.body);
   res.json({ message: "Message sent successfully", data: req.body });
 });
 
