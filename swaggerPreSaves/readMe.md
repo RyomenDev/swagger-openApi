@@ -27,7 +27,7 @@ After running the server, visit:
 │── package.json
 ```
 
-## 🔥 New Features Added
+## 🔥 New Features Added I
 
 ✅ **Profile Management**
 
@@ -47,3 +47,25 @@ After running the server, visit:
 ✅ **Extended File Operations**
 
 - `DELETE /file/delete` → Delete a file
+
+## 🔥 New Features Added II
+
+✅ **Notifications System**
+
+- `GET /notifications` → Retrieve notifications
+- `PUT /notifications/mark-read` → Mark notifications as read
+
+✅ **Product Catalog**
+
+- `GET /products` → Get all products
+- `GET /products/{id}` → Get product details
+
+✅ **Product Reviews**
+
+- `POST /reviews` → Add a review
+- `GET /reviews/{productId}` → Get product reviews
+
+✅ **Website Analytics**
+
+- `GET /analytics/traffic` → Get website traffic data
+- `GET /analytics/sales` → Get sales analytics
